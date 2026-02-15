@@ -49,14 +49,12 @@ Self-information, or **surprisal**, is a fundamental pillar of information theor
 $$
 I(x_t) = -\log_2 P(x_t \mid x_0, x_1, \dots, x_{t-1})
 $$
-<small>Measures word "surprise". Important info gets a higher score.</small>
 
 Current industry baselines, such as **Selective Context**, operate on the assumption that tokens with low $I(x_t)$ are redundant. They calculate the total information density of a sentence $S$ through entropy ($H$) and perplexity ($PP$):
 
 $$
 H(S) = \frac{1}{N} \sum_{t=1}^{N} I(x_t), \quad PP(S) = 2^{H(S)}
 $$
-<small>Calculates average information density and text predictability.</small>
 
 Statistical compressors prune tokens that the model easily predicts (low surprisal) and retain those that are unpredictable (high surprisal).
 
@@ -75,7 +73,6 @@ Inline transitions from purely stochastic filtering to **Deterministic Syntactic
 $$
 M(x_t) = \omega(dep_t, pos_t) \cdot I(x_t)
 $$
-<small>Boosts score for logic-critical words like subjects or negations.</small>
 
 Where $\omega$ is a multiplier determined by the token's role in the syntactic hierarchy. By treating the input as a hierarchical graph of dependencies, Inline ensures:
 
@@ -91,7 +88,6 @@ To guarantee stability, Inline employs a stochastic "observer" (GPT-2) to monito
 $$
 \Delta PP = \frac{PP(S_{compressed}) - PP(S_{original})}{PP(S_{original})}
 $$
-<small>Monitors clarity loss during compression compared to original.</small>
 
 Pruning is halted if $\Delta PP$ exceeds a safety threshold $\tau$ (e.g., 1.5). This hybrid approach—combined deterministic linguistics with stochastic feedback—ensures that the resulting context is not just shorter, but **logically permanent**.
 
