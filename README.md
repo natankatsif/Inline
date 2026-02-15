@@ -172,17 +172,17 @@ Initial results across the benchmark demonstrate a significant advantage for the
 ### 5.2 Scalability and Latency
 As shown in the latency scalability graph, Inline's deterministic pre-processing scales linearly with context size, whereas stochastic methods experience quadratic-like latency jumps at 50k+ tokens. This makes Inline the only viable solution for real-time processing of massive prompt windows.
 
-![Latency Scalability](./frontend/public/docs/assets/latency_chart.png)
+![Latency Scalability](./assets/latency_chart.png)
 
 ### 5.3 Logic Preservation and Domain Integrity
 Inline maintains high semantic fidelity even under aggressive compression, whereas Selective Context fails to protect critical logic anchors, leading to a 0.5 score in logic-heavy categories.
 
-![Logic Preservation](./frontend/public/docs/assets/logic_preservation.png)
+![Logic Preservation](./assets/logic_preservation.png)
 
 ### 5.4 Economic and Computational Efficiency
 With an average compression of 25%, Inline significantly reduces the "Token Tax" without sacrificing model accuracy, as visualized below.
 
-![Compression Savings](./frontend/public/docs/assets/compression_savings.png)
+![Compression Savings](./assets/compression_savings.png)
 
 > [!IMPORTANT]
 > Inline achieves nearly **5x higher effective compression** on big data while maintaining a **0% Failure Rate**, proving its superiority for mission-critical production environments.
